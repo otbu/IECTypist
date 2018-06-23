@@ -6,7 +6,7 @@ elements = dict(
     dut=dict(name='DUT',isFound=False),
     decl=dict(name='Declaration',isFound=False))
 
-dut_filename = r'../../OperatorAlertData.TcDUT'
+dut_filename = r'../data/OperatorAlertData.TcDUT'
 
 elementName_object = 'TcPlcObject'
 elementName_dut = 'DUT'
