@@ -1,0 +1,16 @@
+
+Regex (python flavour):
+TYPE\s+?(\S+?)\s*?:(.*?)END_TYPE
+
+Test string: -------------------------------------------------------------------
+
+TYPE OperatorAlertData :
+STRUCT
+	counter : INT := 0; (*second count until operator considered not alert*)
+	(*TODO: alarm not implemented yet*)
+	alarm : BOOL := FALSE; (*when counter reaches zero, this alarm is set to TRUE*)
+END_STRUCT
+END_TYPE
+
+
+saved at https://regex101.com/r/OcjMDw/1
