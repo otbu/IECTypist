@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.3">
+  <DUT Name="TestTypeB" Id="{16e1ba0c-dee6-4840-a51f-39c3f42a2079}">
+    <Declaration><![CDATA[TYPE TestTypeB :
+STRUCT
+
+	field_int8 : SINT := 0; (* 8 bits; 1 byte *)
+	field_uint8 : USINT := 0; (* 8 bits; 1 byte *)
+	field_int16 : INT := 0; (* 16 bits; 2 bytes *)
+	field_uint16 : UINT := 0; (* 16 bits; 2 bytes *)
+	field_int32 : DINT := 0; (* 32 bits; 4 bytes *)
+	field_uint32 : UDINT := 0; (* 32 bits; 4 bytes *)
+	field_int64 : LINT := 0; (* 64 bits; 8 bytes *)
+	field_uint64 : ULINT := 0; (* 64 bits; 8 bytes *)
+	field_real32 : REAL := 0; (* 32 bit float; 4 bytes *)
+	field_real64 : LREAL := 0; (* 64 bit float; 8 bytes *)
+
+	(* ST_TestType is 2*(1+2+4+8)+4+8 = 42 bytes long *)
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
