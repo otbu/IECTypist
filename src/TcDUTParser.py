@@ -6,7 +6,7 @@ elements = dict(
     dut=dict(name='DUT',isFound=False),
     decl=dict(name='Declaration',isFound=False))
 
-dut_filename = r'../data/OperatorAlertData.TcDUT'
+dut_filename = r'../data/TestTypeA.TcDUT'
 
 elementName_object = 'TcPlcObject'
 elementName_dut = 'DUT'
@@ -47,7 +47,7 @@ def main():
     #p = expat.ParserCreate()
     #p.StartElementHandler = start_element
     #p.CharacterDataHandler = char_data
-    #with open(r'../../OperatorAlertData.TcDUT', 'rb') as file:
+    #with open(r'../../TestTypeA.TcDUT', 'rb') as file:
     #    p.ParseFile(file)
     #print('-- Found DUT CharacterData:\n', repr(cached_cdata))
 
