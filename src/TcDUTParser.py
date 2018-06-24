@@ -32,13 +32,16 @@ def main():
         attributes['type_text'] = elem_decl.text
 
     print(attributes)
-
     m0 = re.search(r'(?s)TYPE\s+?(?P<name>\S+?)\s*?:(?P<body>.*?)END_TYPE', attributes['type_text'])
-    type_name = m0.group('name')
     type_body = m0.group('body')
-    #print(type_body)
-    m1 = re.search(r'(?s)STRUCT(.*?)END_STRUCT', type_body)
-    print(m1.group(1))
+
+    # find STRUCT ... END_STRUCT body:
+    m1 = re.search(r'(?s).*?STRUCT(?P<struct_body>.*?)END_STRUCT', type_body)
+    struct_body = m1.group('struct_body')
+
+    print(repr(struct_body))
+
+    #m2 = re.search(r'(?m)\s*?(\S+?)\s*?:\s*?;', type_body)
 
 if __name__ == '__main__':
     main()
