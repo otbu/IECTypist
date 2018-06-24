@@ -2,6 +2,7 @@
 from xml.etree import ElementTree
 import re
 
+
 dut_filename = r'../data/TestTypeB.TcDUT'
 
 elementName_object = 'TcPlcObject'
@@ -32,14 +33,24 @@ def main():
         attributes['type_text'] = elem_decl.text
 
     print(attributes)
-    m0 = re.search(r'(?s)TYPE\s+?(?P<name>\S+?)\s*?:(?P<body>.*?)END_TYPE', attributes['type_text'])
-    type_body = m0.group('body')
+
+    # check if C++ line-end comments are used:
+    s0 = re.finditer(r'(?m)^.*?//(?P<comment>.*?)$', attributes['type_text'])
+    s1 = re.split(r'(?m)^.*?//(?P<comment>.*?)$', attributes['type_text'])
+    print(s1)
+    for match in s0:
+        comment_span = match.span('comment')
+        print(repr(attributes['type_text'][match.start('comment'):match.end('comment')]))
+        #print(repr(match.group('comment')))
+
+    #m0 = re.search(r'(?s)TYPE\s+?(?P<name>\S+?)\s*?:(?P<body>.*?)END_TYPE', attributes['type_text'])
+    #type_body = m0.group('body')
 
     # find STRUCT ... END_STRUCT body:
-    m1 = re.search(r'(?s).*?STRUCT(?P<struct_body>.*?)END_STRUCT', type_body)
-    struct_body = m1.group('struct_body')
+    #m1 = re.search(r'(?s).*?STRUCT(?P<struct_body>.*?)END_STRUCT', type_body)
+    #struct_body = m1.group('struct_body')
 
-    print(repr(struct_body))
+    #print(repr(struct_body))
 
     #m2 = re.search(r'(?m)\s*?(\S+?)\s*?:\s*?;', type_body)
 
